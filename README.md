@@ -18,10 +18,14 @@ rustup component add rust-src llvm-tools-preview
 ```
 Then, install the rust crate, and package it with:
 ```
-cargo install
+cargo install --path .
 cargo bootloader
 ```
 The packaged bootimage will be found in `.\target\x86_64-vansch_os\bootimage-vansch-os.bin`
+You can run it in QEMU with:
+```
+qemu-system-x86_64 .\target\x86_64-vansch_os\debug\bootimage-vansch-os.bin
+```
 
 # TODO
 - [ ] Use recommended instructions for compiling as per [Bootloader Package](https://crates.io/crates/bootloader)
