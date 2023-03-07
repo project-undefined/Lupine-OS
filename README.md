@@ -30,12 +30,12 @@ The packaged bootimage will be found in `.\target\x86_64-vansch_os\bootimage-van
 ## Running Process
 You can run it in QEMU with:
 ```
-qemu-system-x86_64 -drive format=raw,file=target\x86_64-vansch_os\debug\bootimage-vansch-os.bin
+cargo run
 ```
 
 # TODO
-- [ ] Use recommended instructions for compiling as per [Bootloader Package](https://crates.io/crates/bootloader)
-- [ ] Do more than just print "Hello, World!" in cyan color
+- [ ] Get user input to kernel
+- [ ] Implement a text coloring system (to vga and serial)
 - [ ] Add better tutorial on how to run image (inluding how to download and install) using [QEMU](https://www.qemu.org/) 
 - [ ] Implement cosmopolitan libc
 
