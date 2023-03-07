@@ -1,20 +1,32 @@
 #![no_std]
 #![no_main]
+#![feature(custom_test_frameworks)]
+#![test_runner(vansch_os::test_runner)]
+#![reexport_test_harness_main = "test_main"]
 
 use core::panic::PanicInfo;
-
-mod vga_buffer;
+use vansch_os::println;
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Hello World{}", "!");
-    panic!("Test of panic system");
+    #[cfg(test)]
+    test_main();
+
+    println!("Welcome to my very small and boring 'kernel'");
     loop {}
 }
 
 /// This function is called on panic.
+#[cfg(not(test))]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
     loop {}
+}
+
+/// This function is called on panic during a test
+#[cfg(test)]
+#[panic_handler]
+fn panic(info: &PanicInfo) -> ! {
+    vansch_os::test_panic_handler(info)
 }
