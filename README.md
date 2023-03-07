@@ -31,3 +31,4 @@ qemu-system-x86_64 .\target\x86_64-vansch_os\debug\bootimage-vansch-os.bin
 - [ ] Use recommended instructions for compiling as per [Bootloader Package](https://crates.io/crates/bootloader)
 - [ ] Do more than just print "Hello, World!" in cyan color
 - [ ] Add tutorial on how to run image using [QEMU](https://www.qemu.org/)
+- [ ] Implement cosmopolitan libc
