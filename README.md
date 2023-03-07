@@ -38,6 +38,7 @@ cargo run
 - [ ] Implement a text coloring system (to vga and serial)
 - [ ] Add better tutorial on how to run image (inluding how to download and install) using [QEMU](https://www.qemu.org/) 
 - [ ] Implement cosmopolitan libc
+- [ ] Create file system structure mockup
 
 
 # Developers
