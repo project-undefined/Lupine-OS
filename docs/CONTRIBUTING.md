@@ -4,7 +4,7 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
 ## Development environment setup
 
-To set up a development environment, please follow the steps in the [README.md file](https://github.com/project-undefined/Vansch-OS#installation-and-running)
+To set up a development environment, please follow the steps in the [README](README.md#installation-and-running)
 
 ## Issues and feature requests
 
