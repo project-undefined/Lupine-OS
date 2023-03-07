@@ -3,10 +3,14 @@ Security-centered, Super-customizable, Open Source, and user freindly OS.
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-- [Building process](#building-process)
+- [Installation and Running](#installation-and-running)
+  - [Building process](#building-process)
+  - [Running Process](#running-process)
 - [TODO](#todo)
+- [Developers](#developers)
 
-# Building process
+# Installation and Running
+## Building process
 First, you need to redownload rust into the nightly version. <br>
 You can do redownload rust by running:
 ```
@@ -22,13 +26,24 @@ cargo install --path .
 cargo bootloader
 ```
 The packaged bootimage will be found in `.\target\x86_64-vansch_os\bootimage-vansch-os.bin`
+
+## Running Process
 You can run it in QEMU with:
 ```
-qemu-system-x86_64 .\target\x86_64-vansch_os\debug\bootimage-vansch-os.bin
+qemu-system-x86_64 -drive format=raw,file=target\x86_64-vansch_os\debug\bootimage-vansch-os.bin
 ```
 
 # TODO
 - [ ] Use recommended instructions for compiling as per [Bootloader Package](https://crates.io/crates/bootloader)
 - [ ] Do more than just print "Hello, World!" in cyan color
-- [ ] Add tutorial on how to run image using [QEMU](https://www.qemu.org/)
+- [ ] Add better tutorial on how to run image (inluding how to download and install) using [QEMU](https://www.qemu.org/) 
 - [ ] Implement cosmopolitan libc
+
+
+# Developers
+Lead Developers:
+ - [PitchBlackNights](https://github.com/PitchBlackNights)
+
+Developers:
+ - [PitchBlackNights](https://github.com/PitchBlackNights)
+ - [wsDev0](https://github.com/wsDev0)
