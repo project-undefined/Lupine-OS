@@ -1,11 +1,11 @@
 #![no_std]
 #![no_main]
 #![feature(custom_test_frameworks)]
-#![test_runner(vansch_os::test_runner)]
+#![test_runner(lupine_os::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 
 use core::panic::PanicInfo;
-use vansch_os::println;
+use lupine_os::println;
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
@@ -28,5 +28,5 @@ fn panic(info: &PanicInfo) -> ! {
 #[cfg(test)]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
-    vansch_os::test_panic_handler(info)
+    lupine_os::test_panic_handler(info)
 }

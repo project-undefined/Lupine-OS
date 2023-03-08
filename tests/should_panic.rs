@@ -2,7 +2,7 @@
 #![no_main]
 
 use core::panic::PanicInfo;
-use vansch_os::{exit_qemu, serial_print, serial_println, QemuExitCode};
+use lupine_os::{exit_qemu, serial_print, serial_println, QemuExitCode};
 use core::fmt;
 
 struct Green(&'static str);

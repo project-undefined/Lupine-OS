@@ -1,5 +1,5 @@
 [package]
-name = "vansch-os"
+name = "lupine-os"
 version = "0.1.0"
 edition = "2021"
 authors = ["PitchBlackNights <pitchblacknights@github.com>"]
