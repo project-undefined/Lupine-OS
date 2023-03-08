@@ -36,7 +36,7 @@ cargo install --path .
 cargo bootloader
 ```
 
-The packaged bootimage will be found in `.\target\x86_64-vansch_os\bootimage-lupine-os.bin`
+The packaged bootimage will be found in `.\target\x86_64-lupine_os\bootimage-lupine-os.bin`
 
 ### Running Process
 
