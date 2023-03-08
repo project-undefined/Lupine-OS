@@ -7,7 +7,7 @@ Security-centered, Super-customizable, Open Source, and user freindly OS.
 - [Table of Contents](#table-of-contents)
 - [Installation and Running](#installation-and-running)
   - [Building process](#building-process)
-- [Running Process](#running-process)
+  - [Running Process](#running-process)
 - [TODO](#todo)
 - [Developers](#developers)
 
@@ -36,9 +36,9 @@ cargo install --path .
 cargo bootloader
 ```
 
-The packaged bootimage will be found in `.\target\x86_64-vansch_os\bootimage-lupine-os.bin`
+The packaged bootimage will be found in `.\target\x86_64-lupine_os\bootimage-lupine-os.bin`
 
-## Running Process
+### Running Process
 
 You can run it in QEMU with:
 
