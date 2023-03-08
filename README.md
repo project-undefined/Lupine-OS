@@ -20,7 +20,7 @@ First, you need to redownload rust into the nightly version.
 You can do redownload rust by running:
 
 ```bash
-rustc --version
+rustup update nightly --force
 ```
 
 After you have installed the nightly version of rust, you need to intall additional rust components with:
