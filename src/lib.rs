@@ -1,4 +1,5 @@
 #![no_std]
+#![feature(abi_x86_interrupt)]
 #![cfg_attr(test, no_main)]
 #![feature(custom_test_frameworks)]
 #![test_runner(crate::test_runner)]
@@ -9,6 +10,7 @@ use core::fmt;
 
 pub mod serial;
 pub mod vga_buffer;
+pub mod interrupts;
 
 struct Green(&'static str);
 
@@ -67,10 +69,15 @@ pub fn exit_qemu(exit_code: QemuExitCode) {
     }
 }
 
+pub fn init() {
+    interrupts::init_idt();
+}
+
 /// Entry point for `cargo test`
 #[cfg(test)]
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
+    init();
     test_main();
     loop {}
 }

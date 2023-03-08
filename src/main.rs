@@ -9,10 +9,16 @@ use lupine_os::println;
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
+    println!("Welcome to the Lupine OS kernel");
+
+    lupine_os::init();
+
+    x86_64::instructions::interrupts::int3();
+
     #[cfg(test)]
     test_main();
 
-    println!("Welcome to my very small and boring 'kernel'");
+    println!("It did not crash!");
     loop {}
 }
 
