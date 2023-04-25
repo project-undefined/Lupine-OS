@@ -1,5 +1,6 @@
 {
     // These are require unless you want rust-analyzer to freak out, and annoy the crap out of you
     "rust-analyzer.check.targets": ["x86_64-unknown-none"],
-    "rust-analyzer.check.allTargets": false
+    "rust-analyzer.check.allTargets": false,
+    "terminal.integrated.cwd": "./source"
 }
