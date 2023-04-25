@@ -13,9 +13,8 @@ pub extern "C" fn _start() -> ! {
 
     lupine_os::init();
 
-    unsafe {
-        *(0xdeadbeef as *mut u64) = 42;
-    }
+    // invoke a breakpoint exception
+    x86_64::instructions::interrupts::int3();
 
     #[cfg(test)]
     test_main();
@@ -37,4 +36,9 @@ fn panic(info: &PanicInfo) -> ! {
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     lupine_os::test_panic_handler(info)
+}
+
+#[test_case]
+fn trivial_assertion() {
+    assert_eq!(1, 1);
 }

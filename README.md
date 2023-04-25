@@ -33,10 +33,10 @@ Then, install the rust crate, and package it with:
 
 ```bash
 cargo install --path .
-cargo bootloader
+cargo bootimage
 ```
 
-The packaged bootimage will be found in `.\target\x86_64-lupine_os\bootimage-lupine-os.bin`
+The packaged bootimage will be found in `./target/x86_64-lupine_os/bootimage-lupine-os.bin`
 
 ### Running Process
 
