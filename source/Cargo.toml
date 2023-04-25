@@ -1,8 +1,8 @@
 [package]
 name = "lupine-os"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
-authors = ["PitchBlackNights <pitchblacknights@github.com>"]
+authors = ["PitchBlackNights <pitchblacknights@proton.me>"]
 
 # Profile used for `cargo build`
 #[profile.dev]
@@ -12,9 +12,6 @@ authors = ["PitchBlackNights <pitchblacknights@github.com>"]
 [profile.release]
 panic = "abort" # Disable stack unwinding on panic
 
-[[test]]
-name = "should_panic"
-harness = false
 
 [dependencies]
 bootloader = "0.9.8"
@@ -34,3 +31,13 @@ test-args = [
 ]
 test-timeout = 300 # In seconds
 test-success-exit-code = 33 # Map exit code 33 to cargo exit code 0
+
+
+# Special Test Configurations
+[[test]]
+name = "should_panic"
+harness = false
+
+[[test]]
+name = "stack_overflow"
+harness = false

@@ -18,14 +18,14 @@ impl fmt::Display for Green {
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
+    serial_print!("should_panic::should_fail...\t");
     should_fail();
-    serial_println!("[test did not panic]");
+    serial_println!("[didn't panic]");
     exit_qemu(QemuExitCode::Failed);
     loop{}
 }
 
 fn should_fail() {
-    serial_print!("should_panic::should_fail...\t");
     assert_eq!(0, 1);
 }
 

@@ -5,9 +5,10 @@
 #![test_runner(crate::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 
-use core::panic::PanicInfo;
 use core::fmt;
+use core::panic::PanicInfo;
 
+pub mod gdt;
 pub mod interrupts;
 pub mod serial;
 pub mod vga_buffer;
@@ -15,7 +16,7 @@ pub mod vga_buffer;
 struct Green(&'static str);
 
 impl fmt::Display for Green {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result { 
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "\x1B[32m")?; // prefix code
         write!(f, "{}", self.0)?;
         write!(f, "\x1B[0m")?; // postfix code
@@ -36,6 +37,11 @@ where
         self();
         serial_println!("{}", Green("[ok]"));
     }
+}
+
+pub fn init() {
+    gdt::init();
+    interrupts::init_idt();
 }
 
 pub fn test_runner(tests: &[&dyn Testable]) {
@@ -67,10 +73,6 @@ pub fn exit_qemu(exit_code: QemuExitCode) {
         let mut port = Port::new(0xf4);
         port.write(exit_code as u32);
     }
-}
-
-pub fn init() {
-    interrupts::init_idt();
 }
 
 /// Entry point for `cargo test`

@@ -9,12 +9,9 @@ use lupine_os::println;
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Welcome to the Lupine OS kernel");
+    println!("Welcome to the Lupine OS kernel\n\n");
 
     lupine_os::init();
-
-    // invoke a breakpoint exception
-    x86_64::instructions::interrupts::int3();
 
     #[cfg(test)]
     test_main();
