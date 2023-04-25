@@ -2,6 +2,8 @@
 
 Security-centered, Super-customizable, Open Source, and user freindly OS.
 
+Currently based off of Philipp Oppermann's, [Blog OS](https://github.com/phil-opp/blog_os).
+
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
