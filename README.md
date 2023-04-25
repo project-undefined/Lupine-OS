@@ -13,7 +13,7 @@ Currently based off of Philipp Oppermann's, [Blog OS](https://github.com/phil-op
 - [TODO](#todo)
 - [Developers](#developers)
   - [Lead Developers](#lead-developers)
-  - [Developers](#developers-1)
+  - [All Developers](#all-developers)
 
 ## Installation and Running
 
@@ -66,7 +66,7 @@ cargo run
 
 - [PitchBlackNights](https://github.com/PitchBlackNights)
 
-### Developers
+### All Developers
 
 - [PitchBlackNights](https://github.com/PitchBlackNights)
 - [wsDev0](https://github.com/wsDev0)
