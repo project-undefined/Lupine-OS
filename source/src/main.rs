@@ -6,6 +6,7 @@
 
 use core::panic::PanicInfo;
 use lupine_os::println;
+use libc;
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
