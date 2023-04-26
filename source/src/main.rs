@@ -6,18 +6,14 @@
 
 use core::panic::PanicInfo;
 use lupine_os::println;
-use libc;
+extern crate libc;
+extern crate bootloader_api;
 
-#[no_mangle]
-pub extern "C" fn _start() -> ! {
-    println!("Welcome to the Lupine OS kernel\n\n");
+bootloader_api::entry_point!(kernel_main);
 
+fn kernel_main(boot_info: &'static mut bootloader_api::BootInfo) -> ! {
     lupine_os::init();
-
-    #[cfg(test)]
-    test_main();
-
-    println!("It did not crash!");
+    println!("hi");
     lupine_os::hlt_loop();
 }
 
