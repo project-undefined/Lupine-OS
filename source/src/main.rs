@@ -23,8 +23,6 @@ pub extern "C" fn _start() -> ! {
     // unsafe { *ptr = 42; }
     // println!("Write Worked");
 
-    
-
     #[cfg(test)]
     test_main();
 
@@ -32,7 +30,7 @@ pub extern "C" fn _start() -> ! {
     lupine_os::hlt_loop();
 }
 
-/// This function is called on panic.
+// This function is called on panic.
 #[cfg(not(test))]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
@@ -40,7 +38,7 @@ fn panic(info: &PanicInfo) -> ! {
     lupine_os::hlt_loop();
 }
 
-/// This function is called on panic during a test
+// This function is called on panic during a test
 #[cfg(test)]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
