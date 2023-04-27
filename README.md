@@ -54,9 +54,11 @@ cargo run
 ## TODO
 
 - [x] Get user input to kernel (sorta done)
-  - [ ] Get the kernel to use the keyboard data instead of just print it
-- [ ] Implement a text coloring system (to vga and serial)
-- [ ] Create better tutorial on how to run image (inluding how to download and install) using [QEMU](https://www.qemu.org/)
+  - [ ] Feed keyboard input into a command interpreter
+  - [ ] Handle keys: `escape, delete, backspace, tab`
+- [ ] Create functions, that can be used in other rust files, to create executable scripts (kinda like python, just for now)
+- [ ] Implement a proper text coloring system (for vga and serial)
+- [ ] Create better tutorial on how to run bootimage (inluding how to download and install) using [QEMU](https://www.qemu.org/)
 - [ ] Implement interfacing Cosmopolitan Libc through kernel api
 - [ ] Create file system structure mockup
 
