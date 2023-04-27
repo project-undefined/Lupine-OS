@@ -7,26 +7,26 @@
 
 use core::panic::PanicInfo;
 // use libc;
-use lupine_os::println;
+use lupine_os::{println, print};
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Welcome to the Lupine OS kernel\n\n");
-
+    println!("Welcome to the Lupine OS kernel!");
+    print!("Initalizing...\t");
+    
     lupine_os::init();
 
-    // let ptr = 0x204f63 as *mut u32;
-    //
-    // unsafe { let x = *ptr; }
-    // println!("Read Worked");
-    //
-    // unsafe { *ptr = 42; }
-    // println!("Write Worked");
+    println!("[DONE]");
+
+    use x86_64::registers::control::Cr3;
+
+    let (level_4_page_table, _) = Cr3::read();
+    println!("Level 4 page table at: {:?}", level_4_page_table.start_address());
 
     #[cfg(test)]
     test_main();
 
-    println!("It did not crash!");
+    print!("\n[kernel@SYSNM ~]>> ");
     lupine_os::hlt_loop();
 }
 
