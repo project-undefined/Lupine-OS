@@ -1,3 +1,2 @@
-.git
-source/target
-source/Cargo.lock
+target
+Cargo.lock
