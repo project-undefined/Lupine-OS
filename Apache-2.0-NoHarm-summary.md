@@ -1,4 +1,4 @@
-# Do No Harm Licence – Summary
+# Do No Harm License – Summary
 
 For version 0.3, July 2022
 
@@ -6,17 +6,17 @@ For version 0.3, July 2022
 
 LEGALLY NON-BINDING SUMMARY OF THE TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
-## Licence Grants
+## License Grants
 
 You're allowed
 
 - to distribute the licensed work,
 - to create, publish, sublicense and patent derivative works and
-- to put your modifications or your derivative work under a seperate licence,
+- to put your modifications or your derivative work under a separate license,
 
-free of charge. Though, filing patent litigation leads to the loss of the patent licence. Also, the licence grants don't include the right to use the licensor's trademarks.
+free of charge. Though, filing patent litigation leads to the loss of the patent license. Also, the license grants don't include the right to use the licensor's trademarks.
 
-## Unethical Behaviour
+## Unethical Behavior
 
 You may not use the licensed work if you engage in:
 
@@ -33,13 +33,13 @@ You may not use the licensed work if you engage in:
 
 ## Contributions
 
-Contributions to the licensed work must be licensed under the exact same licence.
+Contributions to the licensed work must be licensed under the exact same license.
 
-## Licence Notice
+## License Notice
 
 When distributing the licensed work or your derivative work, you must
 
-- include a copy of this licence,
+- include a copy of this license,
 - retain attribution notices,
 - state changes that you made and
 - not use the names of the author and the contributors to promote your derivative work.

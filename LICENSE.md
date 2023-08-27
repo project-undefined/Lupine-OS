@@ -5,13 +5,13 @@
 Most software today is developed with little to no thought of how it will be used, or the
 consequences for our society and planet.
 
-As software developers, we engineer the infrastructure of the 21st century. We recognise that our
+As software developers, we engineer the infrastructure of the 21st century. We recognize that our
 infrastructure has great power to shape the world and the lives of those we share it with, and we
 choose to consciously take responsibility for the social and environmental impacts of what we build.
 
 We envisage a world free from injustice, inequality, and the reckless destruction of lives and our
 planet. We reject slavery in all its forms, whether by force, indebtedness, or by algorithms that
-hack human vulnerabilities. We seek a world where humankind is at peace with our neighbours, nature,
+hack human vulnerabilities. We seek a world where humankind is at peace with our neighbors, nature,
 and ourselves. We want our work to enrich the physical, mental and spiritual wellbeing of all
 society.
 
@@ -110,7 +110,7 @@ conditions:
 4. Neither the name of the copyright holder nor the names of its contributors may be used to endorse
    or promote products derived from this software without specific prior written permission; and
 
-5. This software must not be used by any organisation, website, product, or service that:
+5. This software must not be used by any organization, website, product, or service that:
    1. promotes, lobbies for or derives a majority of income from:
          1. **abuses of human rights**:
             * human trafficking
@@ -131,7 +131,7 @@ conditions:
          4. **addictive or destructive products and services**:
             * gambling
             * tobacco
-            * products that encourage adversely addictive behaviours
+            * products that encourage adversely addictive behaviors
 
    2. dissuades, lobbies against, or derives a majority of income from actions that discourage or frustrate:
       * peace
@@ -140,7 +140,7 @@ conditions:
       * peaceful assembly and association (including worker associations)
       * a sustainable environment
    ; and
-   
+
 5. If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative
    Works that You distribute must include a readable copy of the attribution notices contained
    within such NOTICE file, excluding those notices that do not pertain to any part of the
@@ -204,6 +204,6 @@ additional liability.
 ## Attribution
 
 Do No Harm License [Contributor Covenant][homepage], (pre 1.0),
-available at https://github.com/raisely/NoHarm
+available at [https://github.com/raisely/NoHarm](https://github.com/raisely/NoHarm)
 
 [homepage]: https://github.com/raisely/NoHarm
