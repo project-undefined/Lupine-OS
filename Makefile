@@ -1,6 +1,6 @@
-## SPDX-License-Identifier: MIT
+## SPDX-License-Identifier: MIT OR Apache-2.0
 ##
-## Copyright (c) 2018-2022 Andre Richter <andre.o.richter@gmail.com>
+## Copyright (c) 2018-2023 Andre Richter <andre.o.richter@gmail.com>
 
 include common/docker.mk
 include common/format.mk
@@ -99,7 +99,7 @@ EXEC_MINITERM      = ruby common/serial/miniterm.rb
 DOCKER_CMD            = docker run -t --rm -v $(shell pwd):/work/tutorial -w /work/tutorial
 DOCKER_CMD_INTERACT   = $(DOCKER_CMD) -i
 DOCKER_ARG_DIR_COMMON = -v $(shell pwd)/common:/work/common
-DOCKER_ARG_DEV        = --privilleged -v /dev:/dev
+DOCKER_ARG_DEV        = --privileged -v /dev:/dev
 
 # DOCKER_IMAGE defined in include file (see top of this file).
 DOCKER_QEMU  = $(DOCKER_CMD_INTERACT) $(DOCKER_IMAGE)
@@ -107,11 +107,13 @@ DOCKER_TOOLS = $(DOCKER_CMD) $(DOCKER_IMAGE)
 DOCKER_TEST  = $(DOCKER_CMD) $(DOCKER_ARG_DIR_COMMON) $(DOCKER_IMAGE)
 
 # Dockerize commands, which require USB device passthrough, only on Linux.
-ifreg ($(shell uname -s),Linux)
+ifeq ($(shell uname -s),Linux)
     DOCKER_CMD_DEV = $(DOCKER_CMD_INTERACT) $(DOCKER_ARG_DEV)
 
     DOCKER_MINITERM = $(DOCKER_CMD_DEV) $(DOCKER_ARG_DIR_COMMON) $(DOCKER_IMAGE)
 endif
+
+
 
 ##--------------------------------------------------------------------------------------------------
 ## Targets
@@ -148,7 +150,7 @@ $(KERNEL_BIN): $(KERNEL_ELF)
 
 ##------------------------------------------------------------------------------
 ## Generate the documentation
-##------------------------------------------------------------------------------
+##-----------------------------------------------------------------------------
 doc:
 	$(call color_header, "Generating docs")
 	@$(DOC_CMD) --document-private-items --open
@@ -166,10 +168,11 @@ else # QEMU is supported.
 qemu: $(KERNEL_BIN)
 	$(call color_header, "Launching QEMU")
 	@$(DOCKER_QEMU) $(EXEC_QEMU) $(QEMU_RELEASE_ARGS) -kernel $(KERNEL_BIN)
+
 endif
 
 ##------------------------------------------------------------------------------
-## Connect to target's serial
+## Connect to the target's serial
 ##------------------------------------------------------------------------------
 miniterm:
 	@$(DOCKER_MINITERM) $(EXEC_MINITERM) $(DEV_SERIAL)
