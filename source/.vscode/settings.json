@@ -59,6 +59,7 @@
         "GPIO",
         "GPPUD",
         "GPPUDCLK",
+        "miniterm",
         "MMIO",
         "NUMBITS",
         "PUDCLK",
