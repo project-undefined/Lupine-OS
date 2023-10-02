@@ -1,10 +1,10 @@
-## SPDX-License-Identifier: MIT OR Apache-2.0
+## SPDX-License-Identifier: MIT
 ##
 ## Copyright (c) 2018-2023 Andre Richter <andre.o.richter@gmail.com>
 
-include common/docker.mk
-include common/format.mk
-include common/operating_system.mk
+include ../common/docker.mk
+include ../common/format.mk
+include ../common/operating_system.mk
 
 ##--------------------------------------------------------------------------------------------------
 ## Optional, user-provided configuration values
@@ -90,15 +90,15 @@ OBJCOPY_CMD = rust-objcopy \
     -O binary
 
 EXEC_QEMU          = $(QEMU_BINARY) -M $(QEMU_MACHINE_TYPE)
-EXEC_TEST_DISPATCH = ruby common/tests/dispatch.rb
-EXEC_MINITERM      = ruby common/serial/miniterm.rb
+EXEC_TEST_DISPATCH = ruby ../common/tests/dispatch.rb
+EXEC_MINITERM      = ruby ../common/serial/miniterm.rb
 
 ##------------------------------------------------------------------------------
 ## Dockerization
 ##------------------------------------------------------------------------------
 DOCKER_CMD            = docker run -t --rm -v $(shell pwd):/work/tutorial -w /work/tutorial
 DOCKER_CMD_INTERACT   = $(DOCKER_CMD) -i
-DOCKER_ARG_DIR_COMMON = -v $(shell pwd)/common:/work/common
+DOCKER_ARG_DIR_COMMON = -v $(shell pwd)/../common:/work/common
 DOCKER_ARG_DEV        = --privileged -v /dev:/dev
 
 # DOCKER_IMAGE defined in include file (see top of this file).

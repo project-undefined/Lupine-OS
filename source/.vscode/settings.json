@@ -1,0 +1,69 @@
+{
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        100
+    ],
+    "rust-analyzer.cargo.target": "aarch64-unknown-none-softfloat",
+    "rust-analyzer.cargo.features": [
+        "bsp_rpi3"
+    ],
+    "rust-analyzer.checkOnSave.allTargets": false,
+    "rust-analyzer.checkOnSave.extraArgs": [
+        "--bins"
+    ],
+    "rust-analyzer.lens.debug": false,
+    "rust-analyzer.lens.run": false,
+    "editor.detectIndentation": false,
+    "editor.definitionLinkOpensInPeek": true,
+    "files.eol": "\n",
+    "files.encoding": "utf8",
+    "prettier.endOfLine": "lf",
+    "files.insertFinalNewline": true,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 4,
+    "prettier.useTabs": true,
+    "prettier.tabWidth": 4,
+    "[dockerfile]": {
+        "editor.tabSize": 4
+    },
+    "[makefile]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 8
+    },
+    "[ruby]": {
+        "editor.tabSize": 4
+    },
+    "[rust]": {
+        "editor.tabSize": 4
+    },
+    "[asm-collection]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 8
+    },
+    "[shellscript]": {
+        "editor.tabSize": 4
+    },
+    "[toml]": {
+        "editor.tabSize": 4
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "cSpell.words": [
+        "bitfields",
+        "CNTRL",
+        "FSEL",
+        "GPFSEL",
+        "GPIO",
+        "GPPUD",
+        "GPPUDCLK",
+        "MMIO",
+        "NUMBITS",
+        "PUDCLK",
+        "Raspberrys",
+        "tock",
+        "UART"
+    ],
+}
