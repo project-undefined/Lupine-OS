@@ -52,7 +52,18 @@
         "editor.tabSize": 2,
     },
     "cSpell.words": [
+        "bitfields",
+        "CNTRL",
+        "FSEL",
+        "GPFSEL",
+        "GPIO",
+        "GPPUD",
+        "GPPUDCLK",
         "MMIO",
-        "Raspberrys"
+        "NUMBITS",
+        "PUDCLK",
+        "Raspberrys",
+        "tock",
+        "UART"
     ],
 }

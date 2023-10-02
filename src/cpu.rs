@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// Copyright (c) 2020-2022 Andre Richter <andre.o.richter@gmail.com>
+// Copyright (c) 2020-2023 Andre Richter <andre.o.richter@gmail.com>
 
 //! Processor code.
 
@@ -13,4 +13,7 @@ mod boot;
 //--------------------------------------------------------------------------------------------------
 // Architectural Public Reexports
 //--------------------------------------------------------------------------------------------------
-pub use arch_cpu::wait_forever;
+pub use arch_cpu::{nop, wait_forever};
+
+#[cfg(feature = "bsp_rpi3")]
+pub use arch_cpu::spin_for_cycles;

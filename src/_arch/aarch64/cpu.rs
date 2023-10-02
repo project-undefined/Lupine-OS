@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 //
-// Copyright (c) 2018-2022 Andre Richter <andre.o.richter@gmail.com>
+// Copyright (c) 2018-2023 Andre Richter <andre.o.richter@gmail.com>
 
 //! Architectural processor code.
 //!
@@ -16,6 +16,17 @@ use aarch64_cpu::asm;
 //--------------------------------------------------------------------------------------------------
 // Public Code
 //--------------------------------------------------------------------------------------------------
+
+pub use asm::nop;
+
+/// Spin for `n` cycles.
+#[cfg(feature = "bsp_rpi3")]
+#[inline(always)]
+pub fn spin_for_cycles(n: usize) {
+    for _ in 0..n {
+        asm::nop();
+    }
+}
 
 /// Pause execution on the core.
 #[inline(always)]
