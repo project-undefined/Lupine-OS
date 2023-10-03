@@ -37,7 +37,7 @@ pub mod interface {
 
         /// Clear RX buffers, if any.
         fn clear_rx(&self);
-         }
+    }
 
     /// Console statistics.
     pub trait Statistics {
@@ -70,7 +70,7 @@ use synchronization::interface::Mutex;
 
 /// Register a new console.
 pub fn register_console(new_console: &'static (dyn interface::All + Sync)) {
-    CUR_CONSOLE.lock(|con| *con = new_console)
+    CUR_CONSOLE.lock(|con| *con = new_console);
 }
 
 /// Return a reference to the currently registered console.
