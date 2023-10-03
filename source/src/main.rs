@@ -114,6 +114,8 @@
 #![no_main]
 #![no_std]
 
+use libm::{sin, cos};
+
 mod bsp;
 mod console;
 mod cpu;
@@ -121,6 +123,7 @@ mod driver;
 mod panic_wait;
 mod print;
 mod synchronization;
+mod cube;
 
 /// Early init code.
 ///
@@ -158,6 +161,13 @@ fn kernel_main() -> ! {
 
     println!("[3] Chars written: {}", console().chars_written());
     println!("[4] Echoing input now");
+
+    //// print!("Calculating Trig...\t");
+    //// let comp_trig: [f64; 6] = [sin(0.05), cos(0.05), sin(0.025), cos(0.025), sin(0.01), cos(0.01)];
+    //// println!("[DONE]");
+    //// println!("comp_trig = {:?}", comp_trig);
+
+    cube::main();
 
     // Discard any spurious received characters before going into echo mode.
     console().clear_rx();
