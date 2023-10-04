@@ -4,7 +4,6 @@ use libm::{cos, sin};
 const CUBE_WIDTH: f64 = 15.;
 const WIDTH: usize = 120;
 const HEIGHT: usize = 48;
-// const INCREMENT_SPEED: f64 = 0.5;
 const DISTANCE_FROM_CAM: i32 = 60;
 const K1: f64 = 31.;
 const CUBE_AXIS_INCREMENT: [f64; 61] = [
@@ -19,14 +18,16 @@ pub fn main() {
     let mut z_buffer: [f64; WIDTH * HEIGHT * 4] = [0.; WIDTH * HEIGHT * 4];
     #[allow(unused_assignments)]
     let mut buffer: [&'static str; WIDTH * HEIGHT] = [" "; WIDTH * HEIGHT];
-    let (mut a, mut b, mut c): (f64, f64, f64) = (0.0, 0.0, 0.0);
+    let (mut a, mut b, mut c): (f64, f64, f64) = (0., 0., 0.);
+    #[allow(unused_assignments)]
+    let mut comp_trig: [f64; 6] = [0.; 6];
     print!("\x1b[2J"); // Clear Screen
     console::console().flush();
 
     loop {
         z_buffer = [0.; WIDTH * HEIGHT * 4];
         buffer = [" "; WIDTH * HEIGHT];
-        let comp_trig: [f64; 6] = [sin(a), cos(a), sin(b), cos(b), sin(c), cos(c)];
+        comp_trig = [sin(a), cos(a), sin(b), cos(b), sin(c), cos(c)];
         for cube_x in CUBE_AXIS_INCREMENT.iter() {
             for cube_y in CUBE_AXIS_INCREMENT.iter() {
                 calculate_for_surface(
