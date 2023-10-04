@@ -84,7 +84,7 @@ pub fn main() {
                     cube_y,
                     &CUBE_WIDTH,
                     &comp_trig,
-                    "\x1b[91mR", // Foreground = 'Bright Red' (91)
+                    "\x1b[91mN", // Foreground = 'Bright Red' (91)
                     &mut z_buffer,
                     &mut buffer,
                 );
@@ -96,7 +96,7 @@ pub fn main() {
                     cube_y,
                     &-CUBE_WIDTH,
                     &comp_trig,
-                    "\x1b[92mQ", // Foreground = 'Bright Green' (92)
+                    "\x1b[92mS", // Foreground = 'Bright Green' (92)
                     &mut z_buffer,
                     &mut buffer,
                 );
@@ -108,7 +108,7 @@ pub fn main() {
                     cube_y,
                     cube_x,
                     &comp_trig,
-                    "\x1b[93mW", // Foreground = 'Bright Yellow' (93)
+                    "\x1b[93mE", // Foreground = 'Bright Yellow' (93)
                     &mut z_buffer,
                     &mut buffer,
                 );
@@ -120,7 +120,7 @@ pub fn main() {
                     cube_y,
                     &-cube_x,
                     &comp_trig,
-                    "\x1b[94mE", // Foreground = 'Bright Blue' (94)
+                    "\x1b[94mW", // Foreground = 'Bright Blue' (94)
                     &mut z_buffer,
                     &mut buffer,
                 );
@@ -144,7 +144,7 @@ pub fn main() {
                     &CUBE_WIDTH,
                     cube_y,
                     &comp_trig,
-                    "\x1b[96mY", // Foreground = 'Bright Cyan' (96)
+                    "\x1b[96mB", // Foreground = 'Bright Cyan' (96)
                     &mut z_buffer,
                     &mut buffer,
                 );
