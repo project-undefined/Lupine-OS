@@ -56,3 +56,11 @@ Run all commands in `./chainloader`
 - `readelf` - Runs `readelf`
 - `objdump` - Runs `objdump`
 - `nm` - Runs `nm`
+- `jtagboot` - Runs the JTAG Debugger **(Not tested)**
+- `openocd` - Runs OpenOCD **(Not tested)**
+- `gdb`, `gdb-opt0` - Runs AArch64 capable version of `gdb` **(Not tested)**
+
+## Debugging
+
+This has currently not been tested, as it requires a JTAG connector (which I don't have).
+If you do have a JTAG connector, follow [this tutorial](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/08_hw_debug_JTAG) for information on how to use it
