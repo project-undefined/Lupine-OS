@@ -1,6 +1,8 @@
 **/target/*
 **/.gdb_history
 **/kernel8.img
+**/demo_payload_rpi3.img
+**/demo_payload_rpi4.img
 
 node_modules
 .bundle
