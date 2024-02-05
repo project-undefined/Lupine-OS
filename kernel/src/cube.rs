@@ -1,3 +1,5 @@
+// This is just a simple ANSI and floating point test program
+
 use crate::{console, print, println};
 use libm::{cos, sin};
 

@@ -43,14 +43,14 @@ From [rust-raspberrypi-OS-tutorials](https://github.com/rust-embedded/rust-raspb
 
 ## Building and Running
 
-Run all `make` commands in `./source`
+Run all commands in `./chainloader`
 
 `make` commands:
 
 - `all` - Compiles, and generates the stripped kernel binary
 - `doc` - Generates documentation
 - `qemu` - Complies, and generates the stripped kernel binary and runs it in QEMU
-- `miniterm` - Runs miniterm to connect to a RPI via UART
+- `minipush` - Runs minipush to connect to a RPI via UART and push the newest kernel
 - `clippy` - Runs `clippy`
 - `clean` - Cleans directory of kernel image and target dir
 - `readelf` - Runs `readelf`

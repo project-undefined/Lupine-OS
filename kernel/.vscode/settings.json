@@ -28,7 +28,7 @@
         "editor.tabSize": 4
     },
     "[makefile]": {
-        "editor.insertSpaces": false,
+        "editor.insertSpaces": true,
         "editor.tabSize": 8
     },
     "[ruby]": {
@@ -67,29 +67,4 @@
         "tock",
         "UART"
     ],
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/.editorconfig": true,
-        ".editorconfig": true,
-        "**/.prettierignore": true,
-        ".prettierignore": true,
-        "**/.prettierrc.json": true,
-        ".prettierrc.json": true,
-        "**/.rubocop.yml": true,
-        ".rubocop.yml": true,
-        "**/.ruby-version": true,
-        ".ruby-version": true,
-        "**/.rustfmt.toml": true,
-        ".rustfmt.toml": true,
-        "**/Gemfile": true,
-        "Gemfile": true,
-        "**/Gemfile.lock": true,
-        "Gemfile.lock": true
-    },
-    "explorerExclude.backup": {},
 }
