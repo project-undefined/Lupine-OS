@@ -292,7 +292,7 @@ impl PL011UartInner {
         // Read one character.
         let mut ret = self.registers.DR.get() as u8 as char;
 
-        // Convert carriage return to newline.
+        // Convert carrige return to newline.
         if ret == '\r' {
             ret = '\n'
         }

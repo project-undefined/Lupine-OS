@@ -92,4 +92,8 @@
         "Gemfile.lock": true
     },
     "explorerExclude.backup": {},
+    "rust-analyzer.linkedProjects": [
+        "./kernel/Cargo.toml",
+        "./kernel/Cargo.toml"
+    ],
 }

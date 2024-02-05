@@ -91,7 +91,7 @@ OBJCOPY_CMD = rust-objcopy \
 
 EXEC_QEMU          = $(QEMU_BINARY) -M $(QEMU_MACHINE_TYPE)
 EXEC_TEST_DISPATCH = ruby ../common/tests/dispatch.rb
-EXEC_MINITERM      = ruby ../common/serial/miniterm.rb
+EXEC_MINIPUSH      = ruby ../common/serial/minipush.rb
 
 ##------------------------------------------------------------------------------
 ## Dockerization
@@ -110,7 +110,7 @@ DOCKER_TEST  = $(DOCKER_CMD) $(DOCKER_ARG_DIR_COMMON) $(DOCKER_IMAGE)
 ifeq ($(shell uname -s),Linux)
     DOCKER_CMD_DEV = $(DOCKER_CMD_INTERACT) $(DOCKER_ARG_DEV)
 
-    DOCKER_MINITERM = $(DOCKER_CMD_DEV) $(DOCKER_ARG_DIR_COMMON) $(DOCKER_IMAGE)
+    DOCKER_CHAINBOOT = $(DOCKER_CMD_DEV) $(DOCKER_ARG_DIR_COMMON) $(DOCKER_IMAGE)
 endif
 
 
@@ -118,7 +118,7 @@ endif
 ##--------------------------------------------------------------------------------------------------
 ## Targets
 ##--------------------------------------------------------------------------------------------------
-.PHONY: all doc qemu miniterm clippy clean readelf objdump nm check
+.PHONY: all doc qemu chainboot clippy clean readelf objdump nm check
 
 all: $(KERNEL_BIN)
 
@@ -150,7 +150,7 @@ $(KERNEL_BIN): $(KERNEL_ELF)
 
 ##------------------------------------------------------------------------------
 ## Generate the documentation
-##-----------------------------------------------------------------------------
+##------------------------------------------------------------------------------
 doc:
 	$(call color_header, "Generating docs")
 	@$(DOC_CMD) --document-private-items --open
@@ -172,10 +172,10 @@ qemu: $(KERNEL_BIN)
 endif
 
 ##------------------------------------------------------------------------------
-## Connect to the target's serial
+## Push the kernel to the real HW target
 ##------------------------------------------------------------------------------
-miniterm:
-	@$(DOCKER_MINITERM) $(EXEC_MINITERM) $(DEV_SERIAL)
+chainboot: $(KERNEL_BIN)
+	@$(DOCKER_CHAINBOOT) $(EXEC_MINIPUSH) $(DEV_SERIAL) $(KERNEL_BIN)
 
 ##------------------------------------------------------------------------------
 ## Run clippy
