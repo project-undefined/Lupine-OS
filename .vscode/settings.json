@@ -92,4 +92,5 @@
         "Gemfile.lock": true
     },
     "explorerExclude.backup": {},
+    "rust-analyzer.showUnlinkedFileNotification": false,
 }
