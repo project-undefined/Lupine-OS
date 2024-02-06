@@ -35,10 +35,9 @@ jobs:
 
       # Setup Cargo Environment
       - name: Install latest Nightly Rust
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: nightly-2022-10-13
-          override: true
           components: rust-src,llvm-tools-preview, rustfmt, clippy
       - uses: Swatinem/rust-cache@v2
         with:
@@ -48,10 +47,7 @@ jobs:
       - name: Install OS target
         run: rustup target add aarch64-unknown-none-softfloat
       - name: Install needed crates
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: --locked cargo-binutils rustfilt
+        run: cargo install --locked cargo-binutils rustfilt
 
       # Run All OS Tests
       - name: Run boot test
