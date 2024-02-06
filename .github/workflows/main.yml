@@ -6,8 +6,8 @@ on:
     branches:
       - rrOSt-testing
 jobs:
-  setup_ruby_env:
-    name: Setup Ruby Environment
+  test_os:
+    name: Run all tests on the OS
     runs-on: ubuntu-22.04
     defaults:
       run:
@@ -22,6 +22,7 @@ jobs:
           bundler-cache: false
           rubygems: '3.2.22'
 
+      # Setup Ruby Environment
       - name: Set Bundler Path
         run: bundle config set --local path '.vendor/bundle'
       - name: Tell Bundler not to use development?
@@ -29,37 +30,17 @@ jobs:
       - name: Install Ruby Gems
         run: bundle install
 
-  setup_cargo_env:
-    name: Setup Cargo Environment
-    runs-on: ubuntu-22.04
-    defaults:
-      run:
-        shell: bash
-        working-directory: .
-    steps:
-      - uses: actions/checkout@v3
+      # Setup Cargo Environment
       - name: Install needed crates
         run: cargo install cargo-binutils rustfilt
 
-  make_test:
-    name: Run `make test`
-    runs-on: ubuntu-22.04
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./os
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0.3'
-          bundler: '2.4.19'
-          bundler-cache: true
-          rubygems: '3.2.22'
-
+      # Run All OS Tests
       - name: Run boot test
         run: make test_boot
+        working-directory: ./os
       - name: Run unit tests
         run: make test_unit
+        working-directory: ./os
       - name: Run integration tests
         run: make test_integration
+        working-directory: ./os
