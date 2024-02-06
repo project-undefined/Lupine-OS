@@ -23,7 +23,7 @@ unsafe fn kernel_init() -> ! {
     // Handshake
     assert_eq!(console().read_char(), 'A');
     assert_eq!(console().read_char(), 'B');
-    assert_eq!(console().read_char(), 'B');
+    assert_eq!(console().read_char(), 'C');
     print!("OK1234");
 
     // 6
