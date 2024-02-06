@@ -31,12 +31,12 @@ jobs:
         run: bundle install
 
       # Setup Cargo Environment
-    #   - name: Install latest Nightly Rust
-    #     uses: actions-rs/toolchain@v1
-    #     with:
-    #       toolchain: nightly
-    #       override: true
-    #       components: clippy
+      - name: Install latest Nightly Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly-2022-10-13
+          override: true
+          components: rust-src,llvm-tools-preview, rustfmt, clippy
       - name: Install OS target
         run: rustup target add aarch64-unknown-none-softfloat
       - name: Install needed crates
