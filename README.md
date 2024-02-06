@@ -60,6 +60,19 @@ Run all commands in `./chainloader`
 - `openocd` - Runs OpenOCD **(Not tested)**
 - `gdb`, `gdb-opt0` - Runs AArch64 capable version of `gdb` **(Not tested)**
 
+## Testing
+
+The kernel now leverages rust's integrated testing! You can run all the tests simply with `make test` (Make sure to run this in `./os`).
+
+More in-depth testing command guide:
+
+  1. `make test` will run all tests back-to-back. That is, the ever existing `boot test` first, then
+     `unit tests`, then `integration tests`.
+  2. `make test_unit` will run `libkernel`'s unit tests.
+  3. `make test_integration` will run all integration tests back-to-back.
+  4. `TEST=TEST_NAME make test_integration` will run a specficic integration test.
+      - For example, `TEST=01_timer_sanity make test_integration`
+
 ## Debugging
 
 This has currently not been tested, as it requires a JTAG connector (which I don't have).

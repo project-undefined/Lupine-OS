@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ../kernel
+cd ../os
 BSP=rpi4 make
 cp kernel8.img ../chainloader/demo_payload_rpi4.img
 make

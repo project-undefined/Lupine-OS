@@ -1,5 +1,5 @@
 [package]
-name = "mingo"
+name = "lupine-os"
 version = "0.8.0"
 authors = ["Andre Richter <andre.o.richter@gmail.com>"]
 edition = "2021"
