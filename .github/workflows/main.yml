@@ -31,8 +31,20 @@ jobs:
         run: bundle install
 
       # Setup Cargo Environment
+      - name: Install latest Nightly Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          override: true
+          components: clippy
       - name: Install needed crates
-        run: cargo install cargo-binutils rustfilt
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: cargo-binutils rustfilt
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-all-crates: "true"
 
       # Run All OS Tests
       - name: Run boot test
