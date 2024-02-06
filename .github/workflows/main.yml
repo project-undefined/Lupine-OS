@@ -49,6 +49,7 @@ jobs:
           args: --locked cargo-binutils rustfilt
       - uses: Swatinem/rust-cache@v2
         with:
+          workspaces: "./os"
           cache-targets: "true"
           cache-all-crates: "true"
 
