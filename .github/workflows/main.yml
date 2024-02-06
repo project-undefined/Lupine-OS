@@ -34,8 +34,8 @@ jobs:
       - name: Install latest Nightly Rust
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly-2022-10-13
-          override: true
+          toolchain: nightly
+          override: false
           components: rust-src,llvm-tools-preview, rustfmt, clippy
       - name: Install OS target
         run: rustup target add aarch64-unknown-none-softfloat
