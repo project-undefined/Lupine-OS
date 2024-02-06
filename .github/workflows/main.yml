@@ -17,10 +17,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0.3'
-          bundler: '2.4.19'
+          ruby-version: "3.0.3"
+          bundler: "2.4.19"
           bundler-cache: false
-          rubygems: '3.2.22'
+          rubygems: "3.2.22"
 
       # Setup Ruby Environment
       - name: Set Bundler Path
@@ -34,8 +34,8 @@ jobs:
       - name: Install latest Nightly Rust
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
-          override: false
+          toolchain: nightly-2022-10-13
+          override: true
           components: rust-src,llvm-tools-preview, rustfmt, clippy
       - name: Install OS target
         run: rustup target add aarch64-unknown-none-softfloat
@@ -43,7 +43,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: install
-          args: cargo-binutils rustfilt
+          args: --locked cargo-binutils rustfilt
 
       # Run All OS Tests
       - name: Run boot test
