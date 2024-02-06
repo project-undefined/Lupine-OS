@@ -40,6 +40,11 @@ jobs:
           toolchain: nightly-2022-10-13
           override: true
           components: rust-src,llvm-tools-preview, rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "./os"
+          cache-targets: "true"
+          cache-all-crates: "true"
       - name: Install OS target
         run: rustup target add aarch64-unknown-none-softfloat
       - name: Install needed crates
@@ -47,11 +52,6 @@ jobs:
         with:
           command: install
           args: --locked cargo-binutils rustfilt
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "./os"
-          cache-targets: "true"
-          cache-all-crates: "true"
 
       # Run All OS Tests
       - name: Run boot test
