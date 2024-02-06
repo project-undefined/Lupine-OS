@@ -12,7 +12,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: .
+        working-directory: ./os
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
@@ -25,10 +25,13 @@ jobs:
       # Setup Ruby Environment
       - name: Set Bundler Path
         run: bundle config set --local path '.vendor/bundle'
+        working-directory: .
       - name: Tell Bundler not to use development?
         run: bundle config set --local without 'development'
+        working-directory: .
       - name: Install Ruby Gems
         run: bundle install
+        working-directory: .
 
       # Setup Cargo Environment
       - name: Install latest Nightly Rust
@@ -44,14 +47,15 @@ jobs:
         with:
           command: install
           args: --locked cargo-binutils rustfilt
+      - uses: Swatinem/rust-cache@v2
+        with:
+          cache-targets: "true"
+          cache-all-crates: "true"
 
       # Run All OS Tests
       - name: Run boot test
         run: make test_boot
-        working-directory: ./os
       - name: Run unit tests
         run: make test_unit
-        working-directory: ./os
       - name: Run integration tests
         run: make test_integration
-        working-directory: ./os
