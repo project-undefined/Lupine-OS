@@ -1,6 +1,6 @@
-// This is just a simple ANSI test program
+//! ASNI, Floting Point, and Memory test program
 
-use crate::{console, print, println};
+use crate::{console, info, print};
 use libm::{cos, sin};
 
 /// Width of the cube from origin
@@ -28,6 +28,7 @@ const CUBE_AXIS_INCREMENT: [f64; 61] = [
     11.5, 12., 12.5, 13., 13.5, 14., 14.5, 15.,
 ];
 
+/// Main function to run cube loop
 pub fn main() {
     #[allow(unused_assignments)]
     // The z-buffer for each sample point.
@@ -163,12 +164,14 @@ pub fn main() {
             // No:
             //      Print character
             match k % WIDTH {
-                0 => println!(""),
+                0 => print!("\n"),
                 _ => print!("{}", buffer[k]),
             };
         }
-        println!(
-            "\x1b[0m
+        print!("\x1b[0m\n");
+        info!("Time");
+        print!(
+            "\n
             a = {:?}
             b = {:?}
             c = {:?}\n

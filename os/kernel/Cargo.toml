@@ -21,6 +21,8 @@ test-types = { path = "../libraries/test-types" }
 tock-registers = { version = "0.8.x", default-features = false, features = ["register_types"], optional = true }
 qemu-exit = { version = "3.x.x", optional = true }
 
+libm = { version = "0.2.7" }
+
 # Platform specific dependencies
 [target.'cfg(target_arch = "aarch64")'.dependencies]
 aarch64-cpu = { version = "9.x.x" }

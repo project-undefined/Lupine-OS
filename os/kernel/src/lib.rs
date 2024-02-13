@@ -134,6 +134,7 @@ pub mod bsp;
 pub mod common;
 pub mod console;
 pub mod cpu;
+pub mod cube;
 pub mod driver;
 pub mod exception;
 pub mod memory;

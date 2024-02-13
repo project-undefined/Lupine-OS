@@ -77,6 +77,14 @@ fn kernel_main() -> ! {
     info!("Registered IRQ handlers:");
     exception::asynchronous::irq_manager().print_handler();
 
+    let read_addr_start: u64 = 0x0000F;
+    info!("Reading from address '0x{:X}'", read_addr_start);
+    unsafe {
+        let read_addr_contents: u64 = core::ptr::read_volatile(read_addr_start as *mut u64);
+        info!("Contents: '0x{:X}'", read_addr_contents);
+    }
+
     info!("Echoing input now");
-    cpu::wait_forever();
+    cpu::wait_forever()
+
 }

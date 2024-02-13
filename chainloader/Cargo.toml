@@ -21,8 +21,6 @@ path = "src/main.rs"
 ##--------------------------------------------------------------------------------------------------
 
 [dependencies]
-libm = { version = "0.2.7" }
-
 # Optional dependencies
 tock-registers = { version = "0.8.x", default-features = false, features = ["register_types"], optional = true}
 
