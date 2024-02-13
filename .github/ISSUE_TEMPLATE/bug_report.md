@@ -15,6 +15,7 @@ What are all versions of VS OS affected by this bug?
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'

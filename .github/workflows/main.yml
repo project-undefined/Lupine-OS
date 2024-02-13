@@ -1,0 +1,58 @@
+on:
+  push:
+    branches:
+      - rrOSt-testing
+  pull_request:
+    branches:
+      - rrOSt-testing
+jobs:
+  test_os:
+    name: Run all tests on the OS
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./os
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0.3"
+          bundler: "2.4.19"
+          bundler-cache: false
+          rubygems: "3.2.22"
+
+      # Setup Ruby Environment
+      - name: Set Bundler Path
+        run: bundle config set --local path '.vendor/bundle'
+        working-directory: .
+      - name: Tell Bundler not to use development?
+        run: bundle config set --local without 'development'
+        working-directory: .
+      - name: Install Ruby Gems
+        run: bundle install
+        working-directory: .
+
+      # Setup Cargo Environment
+      - name: Install latest Nightly Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2022-10-13
+          components: rust-src,llvm-tools-preview, rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "./os"
+          cache-targets: "true"
+          cache-all-crates: "true"
+      - name: Install OS target
+        run: rustup target add aarch64-unknown-none-softfloat
+      - name: Install needed crates
+        run: cargo install --locked cargo-binutils rustfilt
+
+      # Run All OS Tests
+      - name: Run boot test
+        run: make test_boot
+      - name: Run unit tests
+        run: make test_unit
+      - name: Run integration tests
+        run: make test_integration

@@ -1,6 +1,96 @@
 {
-    // These are require unless you want rust-analyzer to freak out, and annoy the crap out of you
-    "rust-analyzer.check.targets": ["x86_64-unknown-none"],
-    "rust-analyzer.check.allTargets": false,
-    "terminal.integrated.cwd": "./source"
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        100
+    ],
+    "rust-analyzer.cargo.target": "aarch64-unknown-none-softfloat",
+    "rust-analyzer.cargo.features": [
+        "bsp_rpi3"
+    ],
+    "rust-analyzer.checkOnSave.allTargets": false,
+    "rust-analyzer.checkOnSave.extraArgs": [
+        "--bins"
+    ],
+    "rust-analyzer.lens.debug": false,
+    "rust-analyzer.lens.run": false,
+    "editor.detectIndentation": false,
+    "editor.definitionLinkOpensInPeek": true,
+    "files.eol": "\n",
+    "files.encoding": "utf8",
+    "prettier.endOfLine": "lf",
+    "files.insertFinalNewline": true,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 4,
+    "prettier.useTabs": true,
+    "prettier.tabWidth": 4,
+    "[dockerfile]": {
+        "editor.tabSize": 4
+    },
+    "[makefile]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 8
+    },
+    "[ruby]": {
+        "editor.tabSize": 4
+    },
+    "[rust]": {
+        "editor.tabSize": 4
+    },
+    "[asm-collection]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 8
+    },
+    "[shellscript]": {
+        "editor.tabSize": 4
+    },
+    "[toml]": {
+        "editor.tabSize": 4
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "cSpell.words": [
+        "bitfields",
+        "CNTRL",
+        "FSEL",
+        "GPFSEL",
+        "GPIO",
+        "GPPUD",
+        "GPPUDCLK",
+        "miniterm",
+        "MMIO",
+        "NUMBITS",
+        "PUDCLK",
+        "Raspberrys",
+        "tock",
+        "UART"
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.editorconfig": true,
+        ".editorconfig": true,
+        "**/.prettierignore": true,
+        ".prettierignore": true,
+        "**/.prettierrc.json": true,
+        ".prettierrc.json": true,
+        "**/.rubocop.yml": true,
+        ".rubocop.yml": true,
+        "**/.ruby-version": true,
+        ".ruby-version": true,
+        "**/.rustfmt.toml": true,
+        ".rustfmt.toml": true,
+        "**/Gemfile": true,
+        "Gemfile": true,
+        "**/Gemfile.lock": true,
+        "Gemfile.lock": true
+    },
+    "explorerExclude.backup": {},
+    "rust-analyzer.showUnlinkedFileNotification": false,
 }

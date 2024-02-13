@@ -1,74 +1,77 @@
-# Lupine OS <!-- omit in toc -->
+# Lupine-OS
 
-Security-centered, Super-customizable, Open Source, and user freindly OS.
+From [rust-raspberrypi-OS-tutorials](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)
 
-Currently based off of Philipp Oppermann's, [Blog OS](https://github.com/phil-opp/blog_os).
+## Setup
 
-## Table of Contents
+1. [Install Docker Engine][install docker].
+1. (**Linux only**) Ensure your user account is in the [docker group].
+2. Install the needed Crates
+   1. If you already have a version of Rust installed:
 
-- [Table of Contents](#table-of-contents)
-- [Installation and Running](#installation-and-running)
-  - [Building process](#building-process)
-  - [Running Process](#running-process)
-- [TODO](#todo)
-- [Developers](#developers)
-  - [Lead Developers](#lead-developers)
-  - [All Developers](#all-developers)
+      ```bash
+      cargo install cargo-binutils rustfilt
+      ```
 
-## Installation and Running
+   2. If you need to install Rust from scratch:
 
-### Building process
+      ```bash
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-First, you need to redownload rust into the nightly version.
+      source $HOME/.cargo/env
+      cargo install cargo-binutils rustfilt
+      ```
 
-You can do redownload rust by running:
+3. In case you use `Visual Studio Code`, I strongly recommend installing the [Rust Analyzer extension].
+4. Install a few `Ruby` gems.
 
-```bash
-rustup update nightly --force
-```
+    This was last tested with Ruby version `3.0.2` on `Debian 12.2`. If you are using
+    `rbenv`, the respective `.ruby-version` file is already in place. If you never heard of `rbenv`,
+    try using [this little guide](https://stackoverflow.com/a/68118750).
 
-After you have installed the nightly version of rust, you need to intall additional rust components with:
+    Run this in the repository root folder:
 
-```bash
-rustup component add rust-src llvm-tools-preview
-```
+    ```bash
+    bundle config set --local path '.vendor/bundle'
+    bundle config set --local without 'development'
+    bundle install
+    ```
 
-Then, install the rust crate, and package it into a debug binary with:
+[install docker]: <https://docs.docker.com/engine/install/#server>
+[docker group]: <https://docs.docker.com/engine/install/linux-postinstall/>
+[Rust Analyzer extension]: <https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer>
 
-```bash
-cargo install --path .
-cargo install bootimage
-cargo bootimage
-```
+## Building and Running
 
-The packaged bootimage will be found in `./target/x86_64-lupine_os/debug/bootimage-lupine-os.bin`
+`make` commands:
 
-### Running Process
+- `all` - Compiles, and generates the stripped kernel binary
+- `doc` - Generates documentation
+- `qemu` - Complies, and generates the stripped kernel binary and runs it in QEMU
+- `chainboot` - Runs minipush to connect to a RPI via UART and push the newest kernel **(ONLY RUN IN `./chainloader`)**
+- `clippy` - Runs `clippy`
+- `clean` - Cleans directory of kernel image and target dir
+- `readelf` - Runs `readelf`
+- `objdump` - Runs `objdump`
+- `nm` - Runs `nm`
+- `jtagboot` - Runs the JTAG Debugger **(Not tested)**
+- `openocd` - Runs OpenOCD **(Not tested)**
+- `gdb`, `gdb-opt0` - Runs AArch64 capable version of `gdb` **(Not tested)**
 
-You can run a the debug binary in QEMU with:
+## Testing
 
-```bash
-cargo run
-```
+The kernel now leverages rust's integrated testing! You can run all the tests simply with `make test` (Make sure to run this in `./os`).
 
-## TODO
+More in-depth testing command guide:
 
-- [x] Get user input to kernel (sorta done)
-  - [ ] Feed keyboard input into a command interpreter
-  - [ ] Handle keys: `escape, delete, backspace, tab`
-- [ ] Create functions, that can be used in other rust files, to create executable scripts (kinda like python, just for now)
-- [ ] Implement a proper text coloring system (for vga and serial)
-- [ ] Create better tutorial on how to run bootimage (inluding how to download and install) using [QEMU](https://www.qemu.org/)
-- [ ] Implement interfacing Cosmopolitan Libc through kernel api
-- [ ] Create file system structure mockup
+  1. `make test` will run all tests back-to-back. That is, the ever existing `boot test` first, then
+     `unit tests`, then `integration tests`.
+  2. `make test_unit` will run `libkernel`'s unit tests.
+  3. `make test_integration` will run all integration tests back-to-back.
+  4. `TEST=TEST_NAME make test_integration` will run a specficic integration test.
+      - For example, `TEST=01_timer_sanity make test_integration`
 
-## Developers
+## Debugging
 
-### Lead Developers
-
-- [PitchBlackNights](https://github.com/PitchBlackNights)
-
-### All Developers
-
-- [PitchBlackNights](https://github.com/PitchBlackNights)
-- [wsdevv](https://github.com/wsdevv)
+This has currently not been tested, as it requires a JTAG connector (which I don't have).
+If you do have a JTAG connector, follow [this tutorial](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/08_hw_debug_JTAG) for information on how to use it
